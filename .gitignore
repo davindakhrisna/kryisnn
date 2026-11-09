@@ -1,0 +1,38 @@
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# SvelteKit and Build outputs
+.svelte-kit/
+build/
+dist/
+.vercel/
+
+# Testing (Playwright & Vitest)
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Nix & Direnv
+.direnv/
+result
+result-*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# System & Editor files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

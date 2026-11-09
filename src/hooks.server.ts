@@ -1,9 +1,14 @@
 import type { Handle } from '@sveltejs/kit/hooks';
 import { building } from '$app/env';
+import { DATABASE_URL } from '$app/env/private';
 import { auth } from '#lib/server/auth.ts';
 import { svelteKitHandler } from 'better-auth/svelte-kit';
 
 const handleBetterAuth: Handle = async ({ event, resolve }) => {
+	if (!DATABASE_URL) {
+		return resolve(event);
+	}
+
 	const session = await auth.api.getSession({ headers: event.request.headers });
 
 	if (session) {

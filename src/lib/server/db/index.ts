@@ -5,10 +5,11 @@ import { DATABASE_URL } from '$app/env/private';
 import { building } from '$app/env';
 
 if (!DATABASE_URL && !building) {
-	throw new Error('DATABASE_URL is not set');
+	console.warn('[DB] DATABASE_URL is not set. Database operations will fail until configured.');
 }
 
-const connectionString = DATABASE_URL || 'postgresql://build:build@localhost/build';
+const connectionString =
+	DATABASE_URL || 'postgresql://placeholder:placeholder@localhost/placeholder';
 const client = neon(connectionString);
 
 export const db = drizzle(client, { schema });
